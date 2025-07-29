@@ -31,7 +31,7 @@ export function Hero() {
           <Bird className="h-28 w-28 text-foreground" strokeWidth={0.8} />
         </div>
 
-        <nav className="flex items-center space-x-2 px-6 py-3">
+        <nav className="flex flex-col lg:flex-row items-center space-x-2 px-6 py-3">
           {navItems.map((item) => (
             <Link
               key={item.label}
