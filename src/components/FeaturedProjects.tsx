@@ -41,11 +41,11 @@ export function FeaturedProjects() {
   return (
     <section id="projects" className="w-full bg-background py-24">
       {/* Section Header */}
-      <div className="max-w-7xl mx-auto mb-12 px-4 text-center">
-        <h2 className="text-4xl md:text-5xl font-extrabold uppercase tracking-widest text-foreground">
+      <div className="max-w-7xl mx-auto mb-6 px-4 text-center">
+        <h2 className="text-2xl lg:text-3xl font-bold uppercase tracking-widest text-foreground">
           Featured Projects
         </h2>
-        <p className="mt-4 text-lg md:text-xl text-muted-foreground">
+        <p className="mt-2 text-lg text-muted-foreground">
           Handpicked and crafted just for you.
         </p>
         <div className="mt-4 mx-auto h-1 w-20 rounded-full bg-accent/70" />
@@ -67,8 +67,8 @@ export function FeaturedProjects() {
                 key={index}
                 className="group basis-full transition-transform duration-300 hover:scale-[1.01]"
               >
-                <Card className="overflow-hidden rounded-3xl bg-card shadow-lg border border-border">
-                  <CardContent className="relative flex h-[60vw] max-h-[450px] min-h-[300px] items-end p-0">
+                <Card className="overflow-hidden rounded-none bg-card border border-border">
+                  <CardContent className="relative flex h-[60vw] max-h-[600px] min-h-[300px] items-end p-0">
                     <Image
                       src={project.image}
                       alt={project.title}
@@ -81,7 +81,7 @@ export function FeaturedProjects() {
                     <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/75 via-black/30 to-transparent" />
                     <div className="relative z-10 w-full p-8 flex flex-col gap-2 text-white">
                       <span
-                        className={`mb-2 self-start rounded-full px-4 py-1 text-xs font-semibold shadow-lg
+                        className={`mb-2 self-start rounded-full px-4 py-1 text-xs font-semibold
                           ${
                             project.status === "Sold Out"
                               ? "bg-destructive text-destructive-foreground"

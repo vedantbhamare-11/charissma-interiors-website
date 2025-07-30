@@ -1,4 +1,5 @@
-import emailjs from '@emailjs/browser';
+// src/lib/emailjs.ts
+import emailjs from "@emailjs/browser";
 
 const SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!;
 const TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!;
@@ -14,9 +15,9 @@ export async function sendEmail(formData: {
   const templateParams = {
     from_name: formData.name,
     from_email: formData.email,
-    from_phone: formData.phone ?? '',
-    from_address: formData.address ?? '',
-    message: formData.message ?? '',
+    from_phone: formData.phone ?? "",
+    from_address: formData.address ?? "",
+    message: formData.message ?? "",
   };
 
   try {

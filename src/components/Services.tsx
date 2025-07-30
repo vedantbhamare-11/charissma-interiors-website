@@ -62,7 +62,8 @@ const serviceList = [
       />
     ),
     title: "Interior Design",
-    description: "Bespoke creations and personalized spaces tailored to your tastes.",
+    description:
+      "Bespoke creations and personalized spaces tailored to your tastes.",
   },
 ];
 
@@ -71,7 +72,7 @@ export function Services() {
     <section id="designs" className="bg-background py-16 sm:py-36">
       <div className="container mx-auto max-w-7xl px-4">
         <div className="mb-16 text-center">
-          <h2 className="text-3xl font-bold uppercase tracking-wider text-foreground">
+          <h2 className="text-2xl lg:text-3xl font-bold uppercase tracking-widest text-foreground">
             Our Services
           </h2>
           <p className="mt-4 text-muted-foreground">
@@ -90,7 +91,7 @@ export function Services() {
             <motion.div
               key={service.title}
               variants={cardVariants}
-              className="flex flex-col items-center rounded-xl bg-card p-8 shadow-sm transition-shadow hover:shadow-md"
+              className="flex flex-col items-center rounded-xl bg-card p-8 shadow-md transition-shadow hover:shadow-lg"
             >
               {service.icon}
               <h3 className="mt-6 text-foreground font-semibold uppercase tracking-wider">

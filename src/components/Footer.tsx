@@ -1,3 +1,4 @@
+// ./components/Footer.tsx
 "use client";
 import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -51,7 +52,7 @@ export function QuoteSection() {
       <div className="container mb-16 relative z-10 mx-auto max-w-7xl px-4">
         <div className="flex items-center justify-center text-center">
           <div className="w-24 flex-shrink-0 border-t-2 border-border" />
-          <h2 className="mx-6 text-3xl font-bold uppercase tracking-wider text-foreground md:text-4xl">
+          <h2 className="mx-6 text-2xl lg:text-3xl font-bold uppercase tracking-widest text-foreground">
             Contact Us
           </h2>
           <div className="w-24 flex-shrink-0 border-t-2 border-border" />
@@ -72,7 +73,10 @@ export function QuoteSection() {
           </div>
 
           <div className="space-y-2">
-            <label htmlFor="name" className="block text-sm text-muted-foreground">
+            <label
+              htmlFor="name"
+              className="block text-sm text-muted-foreground"
+            >
               Name
             </label>
             <Input
@@ -86,7 +90,10 @@ export function QuoteSection() {
           </div>
 
           <div className="space-y-2">
-            <label htmlFor="email" className="block text-sm text-muted-foreground">
+            <label
+              htmlFor="email"
+              className="block text-sm text-muted-foreground"
+            >
               Email<span className="text-destructive">*</span>
             </label>
             <Input
@@ -101,7 +108,10 @@ export function QuoteSection() {
           </div>
 
           <div className="space-y-2">
-            <label htmlFor="phone" className="block text-sm text-muted-foreground">
+            <label
+              htmlFor="phone"
+              className="block text-sm text-muted-foreground"
+            >
               Phone
             </label>
             <Input
@@ -114,7 +124,10 @@ export function QuoteSection() {
           </div>
 
           <div className="space-y-2">
-            <label htmlFor="address" className="block text-sm text-muted-foreground">
+            <label
+              htmlFor="address"
+              className="block text-sm text-muted-foreground"
+            >
               Address (Street, City, Zip Code)
             </label>
             <Input
@@ -127,7 +140,10 @@ export function QuoteSection() {
           </div>
 
           <div className="space-y-2">
-            <label htmlFor="message" className="block text-sm text-muted-foreground">
+            <label
+              htmlFor="message"
+              className="block text-sm text-muted-foreground"
+            >
               Details (What are you looking for?)
             </label>
             <Textarea
@@ -166,9 +182,7 @@ export function QuoteSection() {
             {loading ? "Sending..." : "SEND"}
           </Button>
           {success && (
-            <p className="text-green-600 mt-2">
-              Email sent successfully!
-            </p>
+            <p className="text-green-600 mt-2">Email sent successfully!</p>
           )}
           {success === false && (
             <p className="text-red-600 mt-2">
@@ -188,7 +202,8 @@ export function QuoteSection() {
               Better yet, see us in person!
             </h4>
             <p className="text-base text-muted-foreground mb-6">
-              We stay in constant communication with our clients until the job is done.
+              We stay in constant communication with our clients until the job
+              is done.
               <br />
               To get a free quote, or if you have questions or special requests,
               just drop us a line.

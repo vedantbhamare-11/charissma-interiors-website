@@ -57,13 +57,16 @@ const cardVariants: Variants = {
   },
 };
 
-export function BookConsultation({ onAddToCart, onCartOpen }: BookConsultationProps) {
+export function BookConsultation({
+  onAddToCart,
+  onCartOpen,
+}: BookConsultationProps) {
   return (
     <section id="consultation" className="relative py-24 bg-background">
       <div className="container mx-auto max-w-7xl px-4 relative">
         {/* Section Title */}
         <motion.h2
-          className="mb-12 text-left text-2xl font-bold tracking-tight text-foreground uppercase"
+          className="mb-12 text-left text-2xl lg:text-3xl font-bold uppercase tracking-widest text-foreground"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}

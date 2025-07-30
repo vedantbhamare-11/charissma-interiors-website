@@ -10,7 +10,12 @@ interface CartDrawerProps {
   onRemoveItem?: (title: string) => void;
 }
 
-export function CartDrawer({ isOpen, onClose, items, onRemoveItem }: CartDrawerProps) {
+export function CartDrawer({
+  isOpen,
+  onClose,
+  items,
+  onRemoveItem,
+}: CartDrawerProps) {
   const drawerRef = useRef<HTMLDivElement>(null);
 
   return (

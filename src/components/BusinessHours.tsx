@@ -39,11 +39,16 @@ export function BusinessHours() {
             {businessHours.find((d) => d.day === currentDay)?.hours}
           </span>
         </span>
-        <span className="ml-2 text-xs text-accent-foreground">{open ? "▲" : "▼"}</span>
+        <span className="ml-2 text-xs text-accent-foreground">
+          {open ? "▲" : "▼"}
+        </span>
       </button>
 
       {/* Dropdown list */}
-      <div id="business-hours-list" className={`${open ? "block" : "hidden"} mt-2`}>
+      <div
+        id="business-hours-list"
+        className={`${open ? "block" : "hidden"} mt-2`}
+      >
         <div className="mb-2 flex items-center justify-between">
           {/* Optional close button if you'd like */}
           {/* <button onClick={() => setOpen(false)} aria-label="Close hours list" className="text-muted-foreground">×</button> */}
@@ -53,7 +58,9 @@ export function BusinessHours() {
             <li
               key={day}
               className={`flex justify-between px-2 py-1 text-base ${
-                day === currentDay ? "font-bold text-foreground" : "text-muted-foreground"
+                day === currentDay
+                  ? "font-bold text-foreground"
+                  : "text-muted-foreground"
               }`}
             >
               <span>{day}</span>
