@@ -39,10 +39,10 @@ const projectList = [
 
 export function FeaturedProjects() {
   return (
-    <section id="projects" className="w-full bg-background py-24">
+    <section id="projects" className="w-full bg-background py-16">
       {/* Section Header */}
       <div className="max-w-7xl mx-auto mb-6 px-4 text-center">
-        <h2 className="text-2xl lg:text-3xl font-bold uppercase tracking-widest text-foreground">
+        <h2 className="text-2xl lg:text-3xl mt-10 font-bold uppercase tracking-widest text-foreground">
           Featured Projects
         </h2>
         <p className="mt-2 text-lg text-muted-foreground">

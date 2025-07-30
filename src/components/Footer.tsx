@@ -48,14 +48,14 @@ export function QuoteSection() {
   };
 
   return (
-    <section id="contact" className="py-24 bg-white">
+    <section id="contact" className="py-16 bg-white">
       <div className="container mb-16 relative z-10 mx-auto max-w-7xl px-4">
         <div className="flex items-center justify-center text-center">
-          <div className="w-24 flex-shrink-0 border-t-2 border-border" />
-          <h2 className="mx-6 text-2xl lg:text-3xl font-bold uppercase tracking-widest text-foreground">
+          <div className="w-24 flex-shrink-0 border-t-2 border-border mt-12" />
+          <h2 className="mx-6 text-2xl lg:text-3xl mt-12 font-bold uppercase tracking-widest text-foreground">
             Contact Us
           </h2>
-          <div className="w-24 flex-shrink-0 border-t-2 border-border" />
+          <div className="w-24 flex-shrink-0 border-t-2 border-border mt-12" />
         </div>
       </div>
       <div className="container mx-auto max-w-7xl px-8 grid grid-cols-1 gap-16 md:grid-cols-2">

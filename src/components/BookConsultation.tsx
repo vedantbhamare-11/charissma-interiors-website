@@ -1,14 +1,16 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { ShoppingCart } from "lucide-react";
+import { ArrowRight, ShoppingCart } from "lucide-react";
 import { motion, Variants } from "framer-motion";
+import Image from "next/image";
 import React from "react";
 
 export interface Package {
   title: string;
   duration: string;
   price: string;
+  image: string;
 }
 
 interface BookConsultationProps {
@@ -18,23 +20,26 @@ interface BookConsultationProps {
 
 const packages: Package[] = [
   {
-    title: "New building construction",
+    title: "New Building Construction",
     duration: "1 hr",
     price: "Rs. 1500 INR",
+    image: "/building.jpg",
   },
   {
     title: "Renovation",
     duration: "1 hr",
     price: "Rs. 1500 INR",
+    image: "/renovation.jpg",
   },
   {
-    title: "Interior Design consultation",
+    title: "Interior Design Consultation",
     duration: "1 hr",
     price: "Rs. 1500 INR",
+    image: "/interior-design.jpg",
   },
 ];
 
-// Container variants for staggering
+// Animation variants remain same
 const containerVariants: Variants = {
   hidden: {},
   show: {
@@ -44,7 +49,6 @@ const containerVariants: Variants = {
   },
 };
 
-// Card variants for fade + slide up animation
 const cardVariants: Variants = {
   hidden: { opacity: 0, y: 40 },
   show: {
@@ -62,9 +66,9 @@ export function BookConsultation({
   onCartOpen,
 }: BookConsultationProps) {
   return (
-    <section id="consultation" className="relative py-24 bg-background">
+    <section id="consultation" className="relative py-16 bg-background">
       <div className="container mx-auto max-w-7xl px-4 relative">
-        {/* Section Title */}
+        {/* Title */}
         <motion.h2
           className="mb-12 text-left text-2xl lg:text-3xl font-bold uppercase tracking-widest text-foreground"
           initial={{ opacity: 0, y: 20 }}
@@ -74,17 +78,16 @@ export function BookConsultation({
           Book a Consultation
         </motion.h2>
 
-        {/* Shopping Cart button at top right */}
+        {/* Cart button */}
         <button
           onClick={onCartOpen}
           aria-label="Open cart"
           title="Open cart"
-          className="absolute top-0 right-4 z-50 p-2 rounded-full text-foreground hover:text-accent-foreground focus:outline-none focus:ring-2 focus:ring-accent"
+          className="absolute top-0 right-4 z-50 p-2 rounded-full text-foreground hover:text-accent-foreground focus:ring-2 focus:ring-accent focus:outline-none"
         >
           <ShoppingCart className="h-7 w-7" />
         </button>
 
-        {/* Packages Grid with staggered animation */}
         <motion.div
           className="grid grid-cols-1 gap-8 md:grid-cols-3"
           variants={containerVariants}
@@ -95,26 +98,52 @@ export function BookConsultation({
           {packages.map((pkg) => (
             <motion.div
               key={pkg.title}
-              className="flex flex-col items-center rounded-xl bg-card border border-border p-8 shadow-sm transition-shadow hover:shadow-md"
               variants={cardVariants}
+              className="flex flex-col items-start rounded-xl bg-card border border-border shadow-sm transition-shadow hover:shadow-md"
             >
-              <h3 className="mb-6 text-lg font-semibold text-foreground text-center min-h-[56px] flex items-center justify-center">
-                {pkg.title}
-              </h3>
-              <div className="mb-8 flex items-center gap-2 text-muted-foreground text-sm">
-                <span>{pkg.duration}</span>
-                <span aria-hidden="true" className="px-2">
-                  |
-                </span>
-                <span>{pkg.price}</span>
+              {/* Image above */}
+              <div className="relative w-full h-48 mb-4 rounded-t-lg overflow-hidden">
+                <Image
+                  src={pkg.image}
+                  alt={pkg.title}
+                  fill
+                  className="object-cover"
+                  placeholder="blur"
+                  blurDataURL="/placeholder.png" // Optional low quality placeholder
+                />
               </div>
-              <Button
-                className="w-full bg-accent shadow-md hover:bg-accent/50"
-                variant="secondary"
-                onClick={() => onAddToCart(pkg)}
-              >
-                Book
-              </Button>
+
+              {/* Left aligned text */}
+              <div className="p-6 w-full">
+                <h3 className="text-lg font-semibold text-foreground mb-2">
+                  {pkg.title}
+                </h3>
+                <div className="flex text-muted-foreground text-sm mb-6 space-x-2">
+                  <span>{pkg.duration}</span>
+                  <span aria-hidden="true">|</span>
+                  <span>{pkg.price}</span>
+                </div>
+
+                <Button
+                  type="button"
+                  className="
+    w-full flex items-center justify-between
+    bg-accent text-accent-foreground font-semibold
+    rounded-md h-12 px-6 py-3 mt-2 shadow-md
+    transition
+     hover:shadow-lg
+    focus-visible:ring-4 focus-visible:ring-accent/30
+    active:scale-[0.97] 
+    disabled:opacity-60
+  "
+                  style={{ letterSpacing: "0.03em" }}
+                  variant="default"
+                  onClick={() => onAddToCart(pkg)}
+                >
+                  <span>Book Now</span>
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </div>
             </motion.div>
           ))}
         </motion.div>

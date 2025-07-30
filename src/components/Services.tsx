@@ -69,10 +69,10 @@ const serviceList = [
 
 export function Services() {
   return (
-    <section id="designs" className="bg-background py-16 sm:py-36">
+    <section id="services" className="bg-background  py-16">
       <div className="container mx-auto max-w-7xl px-4">
         <div className="mb-16 text-center">
-          <h2 className="text-2xl lg:text-3xl font-bold uppercase tracking-widest text-foreground">
+          <h2 className="text-2xl lg:text-3xl mt-8 font-bold uppercase tracking-widest text-foreground">
             Our Services
           </h2>
           <p className="mt-4 text-muted-foreground">

@@ -9,6 +9,7 @@ import { BookConsultation, Package } from "@/components/BookConsultation";
 import { useState } from "react";
 import { CartDrawer } from "@/components/CartDrawer";
 import { AnimatedSection } from "@/components/AnimatedSection";
+import { Header } from "@/components/Header";
 
 export default function HomePage() {
   const [cartItems, setCartItems] = useState<Package[]>([]);
@@ -26,7 +27,7 @@ export default function HomePage() {
 
   return (
     <>
-      {/* <Header /> */}
+      <Header />
       <main>
         <AnimatedSection>
           <Hero />

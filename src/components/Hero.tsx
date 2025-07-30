@@ -1,16 +1,9 @@
-// ./components/Hero.tsx
 "use client";
 
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
-
-const navItems = [
-  { label: "Services", href: "#designs" },
-  { label: "About", href: "#about" },
-  { label: "Projects", href: "#projects" },
-  { label: "Contact", href: "#contact" },
-];
+import { Button } from "./ui/button";
 
 export function Hero() {
   const [isUserDropdownOpen, setUserDropdownOpen] = useState(false);
@@ -37,103 +30,32 @@ export function Hero() {
     <section id="home" className="relative h-[100vh] w-full">
       {/* Background Image */}
       <Image
-        src="/hero-bg.jpg"
+        src="/hero_bg.jpg"
         alt="A beautifully designed modern interior space"
         fill
         priority
         className="object-cover"
       />
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-background/40" />
-      {/* Content */}
-      <div className="relative z-10 flex h-full flex-col items-center justify-center p-4">
-        <div className="mb-16">
-          <Image
-            src="/logo.png"
-            alt="A beautifully designed modern interior space"
-            width={250}
-            height={250}
-            className="object-cover"
-          />
-        </div>
 
-        <nav className="flex flex-col lg:flex-row items-center space-x-2 px-6 py-3">
-          {navItems.map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              className="relative group px-5 py-2 text-base font-semibold uppercase tracking-wider text-foreground"
-            >
-              {item.label}
-              <span
-                className="absolute bottom-1 left-0 block h-[1px] w-full 
-                origin-left scale-x-0 transform bg-foreground 
-                transition-transform duration-300 ease-out 
-                group-hover:scale-x-100"
-              ></span>
-            </Link>
-          ))}
-        </nav>
-      </div>
-      {/* Top Right Icons container */}
-      <div className="absolute top-6 right-6 z-30 flex items-center space-x-6">
-        {/* User Icon + Dropdown */}
-        {/* <div className="relative" ref={userDropdownRef}>
-          <button
-            onClick={() => setUserDropdownOpen(!isUserDropdownOpen)}
-            aria-haspopup="true"
-            aria-expanded={isUserDropdownOpen}
-            aria-controls="user-menu"
-            className="text-foreground hover:text-accent-foreground focus:outline-none focus:ring-2 focus:ring-accent rounded"
-            title="User menu"
+      {/* Card Overlay on the right side */}
+      <div className="absolute top-1/2 right-0 h-full transform -translate-y-1/2 w-1/3 bg-background p-8 flex flex-col justify-center text-foreground">
+        <h1 className="text-4xl font-extrabold mb-4">Welcome</h1>
+        <h2 className="text-2xl font-semibold mb-4 uppercase tracking-wider">
+          YOUR TRUSTED BUILDING PARTNER
+        </h2>
+        <p className="mb-6 text-base leading-relaxed">
+          Building your future with our experience, one brick at a time.
+        </p>
+        {/* Assuming you want this to navigate to contact section */}
+        <Link href="#contact" passHref>
+          <Button
+            variant="default"
+            className="inline-block bg-black text-white hover:bg-accent hover:text-black"
           >
-            <User className="h-6 w-6" />
-          </button>
-
-          {isUserDropdownOpen && (
-            <div
-              id="user-menu"
-              role="menu"
-              aria-label="User menu"
-              className="absolute right-0 mt-2 w-48 rounded-xl border border-border bg-card shadow-lg py-2 text-foreground"
-            >
-              <Link
-                href="/create-account"
-                role="menuitem"
-                className="block px-4 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
-                onClick={() => setUserDropdownOpen(false)}
-              >
-                Create Account
-              </Link>
-              <Link
-                href="/sign-in"
-                role="menuitem"
-                className="block px-4 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
-                onClick={() => setUserDropdownOpen(false)}
-              >
-                Sign In
-              </Link>
-              <Link
-                href="/bookings"
-                role="menuitem"
-                className="block px-4 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
-                onClick={() => setUserDropdownOpen(false)}
-              >
-                Bookings
-              </Link>
-              <Link
-                href="/my-account"
-                role="menuitem"
-                className="block px-4 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
-                onClick={() => setUserDropdownOpen(false)}
-              >
-                My Account
-              </Link>
-            </div>
-          )}
-        </div> */}
+            Contact Us
+          </Button>
+        </Link>
       </div>
-      {/* Cart Drawer */}
     </section>
   );
 }

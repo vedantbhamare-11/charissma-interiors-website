@@ -29,9 +29,9 @@ const aboutImages = [
 
 export function AboutUs() {
   return (
-    <section id="about" className="bg-background py-24 sm:py-32">
+    <section id="about" className="bg-background py-16">
       <div className="container mx-auto max-w-7xl px-4">
-        <div className="grid grid-cols-1 items-center gap-x-12 gap-y-16 lg:grid-cols-2">
+        <div className="grid grid-cols-1 mt-8 items-center gap-x-12 gap-y-16 lg:grid-cols-2">
           {/* Column 1: Carousel */}
           <div className="h-96 w-full flex items-center overflow-hidden rounded-xl">
             <Carousel
