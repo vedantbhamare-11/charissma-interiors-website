@@ -34,11 +34,11 @@ export function Hero() {
         alt="A beautifully designed modern interior space"
         fill
         priority
-        className="object-cover"
+        className="object-cover hidden lg:block"
       />
 
       {/* Card Overlay on the right side */}
-      <div className="absolute top-1/2 right-0 h-full transform -translate-y-1/2 w-1/3 bg-background p-8 flex flex-col justify-center text-foreground">
+      <div className="lg:absolute relative top-1/3 lg:top-1/2 lg:right-0 h-full transform -translate-y-1/2 lg:w-1/3 bg-background p-8 flex flex-col justify-center text-foreground">
         <h1 className="text-4xl font-extrabold mb-4">Welcome</h1>
         <h2 className="text-2xl font-semibold mb-4 uppercase tracking-wider">
           YOUR TRUSTED BUILDING PARTNER
