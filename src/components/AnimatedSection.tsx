@@ -1,6 +1,5 @@
 "use client";
 
-import { ReactNode } from "react";
 import { motion, Variants } from "framer-motion";
 
 const animationVariants: Variants = {

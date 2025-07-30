@@ -3,7 +3,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Bird, User } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 
 const navItems = [

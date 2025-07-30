@@ -1,13 +1,10 @@
 // ./app/page.tsx
 "use client";
-import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { Services } from "@/components/Services";
 import { FeaturedProjects } from "@/components/FeaturedProjects";
 import { QuoteSection } from "@/components/Footer";
 import { AboutUs } from "@/components/AboutUs";
-import { ContactBanner } from "@/components/ContactBanner";
-import { Book } from "lucide-react";
 import { BookConsultation, Package } from "@/components/BookConsultation";
 import { useState } from "react";
 import { CartDrawer } from "@/components/CartDrawer";
