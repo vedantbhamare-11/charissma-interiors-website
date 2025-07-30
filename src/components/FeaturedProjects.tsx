@@ -1,107 +1,136 @@
-import Image from 'next/image';
-import { Card, CardContent } from '@/components/ui/card';
+import Image from "next/image";
+import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from '@/components/ui/carousel';
-import { Button } from '@/components/ui/button';
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
-// Mock data for your projects
+// Project data can be extended or made dynamic
 const projectList = [
   {
-    title: 'The Cornerstone',
-    location: 'Gopalapuram, 6th Street',
-    image: '/carousel1.jpg',
-    status: 'Limited Availability',
+    title: "The Cornerstone",
+    location: "Gopalapuram, 6th Street",
+    image: "/carousel1.jpg",
+    status: "Limited Availability",
   },
   {
-    title: 'The Serenity',
-    location: 'Anna Nagar, East',
-    image: '/carousel2.jpg',
-    status: 'Sold Out',
+    title: "The Serenity",
+    location: "Anna Nagar, East",
+    image: "/carousel2.jpg",
+    status: "Sold Out",
   },
   {
-    title: 'Orchid Gardens',
-    location: 'Velachery, Main Road',
-    image: '/carousel3.jpg',
-    status: 'Now Selling',
+    title: "Orchid Gardens",
+    location: "Velachery, Main Road",
+    image: "/carousel3.jpg",
+    status: "Now Selling",
   },
   {
-    title: 'The Pinnacle',
-    location: 'Nungambakkam High Road',
-    image: '/carousel4.jpg',
-    status: 'Sold Out',
+    title: "The Pinnacle",
+    location: "Nungambakkam High Road",
+    image: "/carousel4.jpg",
+    status: "Sold Out",
   },
 ];
 
 export function FeaturedProjects() {
   return (
-    <section id="projects" className="w-full bg-background py-24 sm:py-32">
-      
-      {/* Section Header (remains contained) */}
-      <div className="container mx-auto max-w-7xl px-4">
-        <div className="mb-4 text-center">
-          <h2 className="text-3xl font-bold uppercase tracking-wider text-foreground">
-            Featured Projects
-          </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
-            Handpicked and crafted just for you.
-          </p>
-        </div>
+    <section id="projects" className="w-full bg-background py-24">
+      {/* Section Header */}
+      <div className="max-w-7xl mx-auto mb-12 px-4 text-center">
+        <h2 className="text-4xl md:text-5xl font-extrabold uppercase tracking-widest text-foreground">
+          Featured Projects
+        </h2>
+        <p className="mt-4 text-lg md:text-xl text-muted-foreground">
+          Handpicked and crafted just for you.
+        </p>
+        <div className="mt-4 mx-auto h-1 w-20 rounded-full bg-accent/70" />
       </div>
 
-      {/* Full-width Carousel */}
-      <Carousel
-        opts={{
-          align: 'start',
-          loop: true,
-        }}
-        className="w-full"
-      >
-        <CarouselContent>
-          {projectList.map((project, index) => (
-            // Each item now takes up the full width
-            <CarouselItem key={index} className="basis-full">
-              <div className="p-3">
-                <Card className="overflow-hidden border-none shadow-none">
-                  <CardContent className="relative flex h-[70vh] items-center justify-center p-0">
+      {/* Carousel */}
+      <div className="max-w-7xl mx-auto px-3 sm:px-1">
+        <Carousel
+          opts={{ align: "start", loop: true }}
+          plugins={[
+            Autoplay({
+              delay: 5000,
+            }),
+          ]}
+        >
+          <CarouselContent>
+            {projectList.map((project, index) => (
+              <CarouselItem
+                key={index}
+                className="group basis-full transition-transform duration-300 hover:scale-[1.01]"
+              >
+                <Card className="overflow-hidden rounded-3xl bg-card shadow-lg border border-border">
+                  <CardContent className="relative flex h-[60vw] max-h-[450px] min-h-[300px] items-end p-0">
                     <Image
                       src={project.image}
-                      alt={`Exterior view of ${project.title}`}
+                      alt={project.title}
                       fill
                       className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 700px"
+                      priority={index === 0}
                     />
-                    {/* Gradient overlay for text readability */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                    
-                    {/* Project details as an overlay */}
-                    <div className="absolute bottom-0 left-0 z-10 p-8 text-white md:p-12">
-                      <div className={`mb-3 inline-block rounded-full px-3 py-1 text-xs font-semibold ${
-                        project.status === 'Sold Out' 
-                          ? 'bg-destructive text-destructive-foreground' 
-                          : 'bg-primary text-primary-foreground'
-                      }`}>
+                    {/* Bottom gradient overlay */}
+                    <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/75 via-black/30 to-transparent" />
+                    <div className="relative z-10 w-full p-8 flex flex-col gap-2 text-white">
+                      <span
+                        className={`mb-2 self-start rounded-full px-4 py-1 text-xs font-semibold shadow-lg
+                          ${
+                            project.status === "Sold Out"
+                              ? "bg-destructive text-destructive-foreground"
+                              : "bg-primary text-primary-foreground/90"
+                          }
+                        `}
+                      >
                         {project.status}
-                      </div>
-                      <h3 className="text-3xl font-bold md:text-4xl">{project.title}</h3>
-                      <p className="mt-2 text-base text-white/80">{project.location}</p>
-                      <Button variant="secondary" className="mt-6">
-                        View Project Details
-                      </Button>
+                      </span>
+                      <h3 className="text-2xl md:text-3xl font-bold drop-shadow-sm">
+                        {project.title}
+                      </h3>
+                      <p className="text-base md:text-lg text-white/80 drop-shadow-sm">
+                        {project.location}
+                      </p>
                     </div>
                   </CardContent>
                 </Card>
-              </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <CarouselPrevious className="left-4 hidden sm:flex" />
-        <CarouselNext className="right-4 hidden sm:flex" />
-      </Carousel>
-      
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+
+          {/* Custom large navigation buttons */}
+          <CarouselPrevious
+            className="
+    !absolute !top-1/2 -translate-y-1/2 left-4
+    !h-15 !w-15 !rounded-full !bg-white/70 !border-none !shadow-xl
+    flex items-center justify-center
+    transition
+    hover:!bg-accent/80 hover:!text-accent-foreground
+    focus-visible:!outline-none
+    focus-visible:ring-4 focus-visible:ring-accent/60
+    z-20
+  "
+          />
+          <CarouselNext
+            className="
+    !absolute !top-1/2 -translate-y-1/2 right-4
+    !h-15 !w-15 !rounded-full !bg-white/70 !border-none !shadow-xl
+    flex items-center justify-center
+    transition
+    hover:!bg-accent/80 hover:!text-accent-foreground
+    focus-visible:!outline-none
+    focus-visible:ring-4 focus-visible:ring-accent/60
+    z-20
+  "
+          />
+        </Carousel>
+      </div>
     </section>
   );
 }
