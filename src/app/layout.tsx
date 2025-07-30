@@ -6,9 +6,11 @@ import { cn } from "@/lib/utils";
 const montserrat = Montserrat({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Skyline | Interior Design & Construction",
-  description: "Crafting extraordinary homes with bespoke designs since 2003.",
+  title: "Charissma Constructions | Turnkey Interiors & Premium Construction in Chennai",
+  description:
+    "Charissma Constructions is Chennai’s trusted name for turnkey construction, architecture, and bespoke interior design. Since 2003, we’ve delivered exceptional residential and commercial spaces with transparency, innovation, and a tradition of trust.",
 };
+
 
 export default function RootLayout({
   children,
