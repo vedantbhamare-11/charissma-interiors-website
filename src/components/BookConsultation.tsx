@@ -75,7 +75,8 @@ export function BookConsultation({
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          Book a Consultation
+          Book a <br className="lg:hidden" />
+          Consultation
         </motion.h2>
 
         {/* Cart button */}
