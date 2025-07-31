@@ -20,8 +20,8 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full bg-background backdrop-blur">
       <div className="container mx-auto flex h-20 max-w-7xl items-center justify-between px-4">
         {/* Logo */}
-        <Link href="/" className="flex items-center space-x-2">
-          <Image src="/logo.png" alt="Logo" width={100} height={100} className="w-40 h-20" />
+        <Link href="/" className="flex items-center">
+          <Image src="/logo.png" alt="Logo" width={100} height={100} className="lg:w-28 lg:h-14 w-20 h-10" />
         </Link>
 
         {/* Desktop Nav */}
