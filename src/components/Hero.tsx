@@ -9,7 +9,6 @@ export function Hero() {
   const [isUserDropdownOpen, setUserDropdownOpen] = useState(false);
   const userDropdownRef = useRef<HTMLDivElement>(null);
 
-  // Close dropdowns on outside clicks
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (
@@ -27,34 +26,36 @@ export function Hero() {
   }, [isUserDropdownOpen]);
 
   return (
-    <section id="home" className="relative h-[100vh] w-full">
-      {/* Background Image */}
-      <Image
-        src="/hero_bg.jpg"
-        alt="A beautifully designed modern interior space"
-        width={2000}
-        height={2000}
-        className="object-cover w-full h-full"
-      />
-
-      {/* Card Overlay on the right side */}
-      <div className="absolute  top-1/3  lg:top-1/2 lg:right-0 h-full transform -translate-y-1/2 lg:w-1/3 lg:bg-background p-8 flex flex-col justify-center text-foreground">
-        <h1 className="text-4xl font-extrabold mt-[-3rem] mb-4">Welcome</h1>
-        <h2 className="text-2xl font-semibold mb-4 uppercase tracking-wider">
-          YOUR TRUSTED BUILDING PARTNER
+    <section
+      id="home"
+      className="container max-w-7xl mx-auto px-4 py-10 grid grid-cols-1 lg:grid-cols-2 items-center gap-10"
+    >
+      {/* Text content left */}
+      <div className="flex flex-col items-start space-y-4 lg:ml-16">
+        <h1 className="font-extrabold px-5 py-2 border border-black rounded-full text-foreground">
+          Welcome
+        </h1>
+        <h2 className="text-3xl font-extrabold tracking-wide text-black">
+          Your Trusted Building Partner.
         </h2>
-        <p className="mb-6 text-base leading-relaxed">
-          Building your future with our experience, one brick at a time.
-        </p>
-        {/* Assuming you want this to navigate to contact section */}
-        <Link href="#contact" passHref>
-          <Button
-            variant="default"
-            className="bg-white w-full text-black lg:bg-black lg:text-white hover:bg-accent hover:text-black"
-          >
-            Contact Us
-          </Button>
-        </Link>
+        <div className="w-full max-w-xs md:max-w-sm">
+          <Link href="#contact" passHref>
+            <Button className="w-fit py-3 px-6 text-white bg-black hover:bg-accent hover:text-black">
+              Contact Us
+            </Button>
+          </Link>
+        </div>
+      </div>
+
+      {/* Image right */}
+      <div className="w-full h-[40vh] lg:h-[50vh] relative rounded-xl overflow-hidden shadow-lg">
+        <Image
+          src="/hero_bg.jpg"
+          alt="A beautifully designed modern interior space"
+          fill
+          className="object-cover"
+          priority
+        />
       </div>
     </section>
   );
