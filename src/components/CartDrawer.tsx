@@ -24,7 +24,7 @@ export function CartDrawer({
         id="cart-drawer"
         role="dialog"
         aria-modal="true"
-        className={`fixed top-0 right-0 z-100 h-full w-80 max-w-full transform bg-card shadow-xl transition-transform duration-300 ease-in-out flex flex-col ${
+        className={`fixed z-200 top-0 right-0 z-100 h-full w-80 max-w-full transform bg-card shadow-xl transition-transform duration-300 ease-in-out flex flex-col ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
         ref={drawerRef}
