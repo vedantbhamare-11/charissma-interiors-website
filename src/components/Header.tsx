@@ -17,7 +17,7 @@ export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-background backdrop-blur">
+    <header className="sticky top-0 z-150 w-full bg-background backdrop-blur">
       <div className="container mx-auto flex h-20 max-w-7xl items-center justify-between px-4">
         {/* Logo */}
         <Link href="/" className="flex items-center">

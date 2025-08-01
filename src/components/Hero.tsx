@@ -28,7 +28,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="container max-w-7xl mx-auto px-4 py-10 grid grid-cols-1 lg:grid-cols-2 items-center gap-10"
+      className="container max-w-7xl mx-auto px-4 h-[100vh] py-10 grid grid-cols-1 lg:grid-cols-2 items-center gap-10"
     >
       {/* Text content left */}
       <div className="flex flex-col items-start space-y-4 lg:ml-16">
