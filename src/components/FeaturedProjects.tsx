@@ -77,7 +77,7 @@ export function FeaturedProjects() {
                       sizes="(max-width: 1024px) 100vw, 700px"
                       priority={index === 0}
                     />
-                    {/* Bottom gradient overlay */}
+                    {/* Bottom gradient overlay
                     <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/75 via-black/30 to-transparent" />
                     <div className="relative z-10 w-full p-8 flex flex-col gap-2 text-white">
                       <span
@@ -97,7 +97,7 @@ export function FeaturedProjects() {
                       <p className="text-base md:text-lg text-white/80 drop-shadow-sm">
                         {project.location}
                       </p>
-                    </div>
+                    </div> */}
                   </CardContent>
                 </Card>
               </CarouselItem>
