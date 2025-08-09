@@ -25,16 +25,12 @@ import {
 } from "@/components/ui/popover";
 import { Calendar } from "@/components/ui/calendar";
 import { format } from "date-fns";
+import { toast } from "sonner";
 
 export interface Package {
   title: string;
   image: string;
 }
-
-// interface BookConsultationProps {
-//   onAddToCart: (pkg: Package & { name: string; phone: string; date: string }) => void;
-//   onCartOpen: () => void;
-// }
 
 const packages: Package[] = [
   {
@@ -73,7 +69,6 @@ const cardVariants: Variants = {
 };
 
 export function BookConsultation() {
-  //export function BookConsultation({ onAddToCart, onCartOpen }: BookConsultationProps) {
   const [open, setOpen] = useState(false);
   const [selectedPackage, setSelectedPackage] = useState<Package | null>(null);
   const [name, setName] = useState("");
@@ -89,19 +84,16 @@ export function BookConsultation() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (selectedPackage && name && phone && date) {
-      // onAddToCart({
-      //   ...selectedPackage,
-      //   name,
-      //   phone,
-      //   date: date.toISOString(),
-      // });
+      toast.success("Consultation booked successfully!", {
+        description: `${selectedPackage.title} on ${format(date, "PPP")}`,
+      });
+
       setOpen(false);
       setName("");
       setPhone("");
       setDate(undefined);
-      alert("Consultation booked successfully!");
     } else {
-      // Optional: show validation error or feedback
+      toast.error("Please fill out all fields before booking.");
     }
   };
 
@@ -114,12 +106,10 @@ export function BookConsultation() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          Book a <br className="lg:hidden" />
-          Consultation
+          Book a <br className="lg:hidden" /> Consultation
         </motion.h2>
 
         <button
-          // onClick={onCartOpen}
           aria-label="Open cart"
           title="Open cart"
           className="absolute top-0 right-4 z-50 p-2 rounded-full text-foreground hover:text-accent-foreground focus:ring-2 focus:ring-accent focus:outline-none"
@@ -154,11 +144,9 @@ export function BookConsultation() {
                 <h3 className="text-lg font-semibold text-foreground mb-2">
                   {pkg.title}
                 </h3>
-                <div className="flex text-muted-foreground text-sm mb-6 space-x-2"></div>
                 <Button
                   type="button"
                   className="w-full flex items-center justify-between bg-accent text-accent-foreground font-semibold rounded-md h-12 px-6 py-3 mt-2 shadow-md transition hover:shadow-lg focus-visible:ring-4 focus-visible:ring-accent/30 active:scale-[0.97] disabled:opacity-60"
-                  style={{ letterSpacing: "0.03em" }}
                   variant="default"
                   onClick={() => handleBookNowClick(pkg)}
                 >
@@ -225,16 +213,11 @@ export function BookConsultation() {
                     selected={date}
                     onSelect={(selectedDate) => {
                       setDate(selectedDate);
-                      setPopoverOpen(false); // close popover on date select
+                      setPopoverOpen(false);
                     }}
                   />
                 </PopoverContent>
               </Popover>
-              {!date && (
-                <p className="text-sm text-red-600 mt-1">
-                  Please select a date.
-                </p>
-              )}
             </div>
 
             <DialogFooter>
