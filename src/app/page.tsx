@@ -7,23 +7,23 @@ import { QuoteSection } from "@/components/Footer";
 import { AboutUs } from "@/components/AboutUs";
 import { BookConsultation, Package } from "@/components/BookConsultation";
 import { useState } from "react";
-import { CartDrawer } from "@/components/CartDrawer";
+// import { CartDrawer } from "@/components/CartDrawer";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Header } from "@/components/Header";
 
 export default function HomePage() {
-  const [cartItems, setCartItems] = useState<Package[]>([]);
-  const [isCartOpen, setCartOpen] = useState(false);
+  // const [cartItems, setCartItems] = useState<Package[]>([]);
+  // const [isCartOpen, setCartOpen] = useState(false);
 
-  const handleAddToCart = (pkg: Package) => {
-    // Optionally prevent duplicates here
-    setCartItems((prev) => [...prev, pkg]);
-    setCartOpen(true);
-  };
+  // const handleAddToCart = (pkg: Package) => {
+  //   // Optionally prevent duplicates here
+  //   setCartItems((prev) => [...prev, pkg]);
+  //   setCartOpen(true);
+  // };
 
-  const handleRemoveItem = (title: string) => {
-    setCartItems((prev) => prev.filter((item) => item.title !== title));
-  };
+  // const handleRemoveItem = (title: string) => {
+  //   setCartItems((prev) => prev.filter((item) => item.title !== title));
+  // };
 
   return (
     <>
@@ -45,8 +45,8 @@ export default function HomePage() {
 
         <AnimatedSection>
           <BookConsultation
-            onAddToCart={handleAddToCart}
-            onCartOpen={() => setCartOpen(true)}
+            // onAddToCart={handleAddToCart}
+            // onCartOpen={() => setCartOpen(true)}
           />{" "}
         </AnimatedSection>
 
@@ -54,12 +54,12 @@ export default function HomePage() {
           <QuoteSection />
         </AnimatedSection>
       </main>
-      <CartDrawer
+      {/* <CartDrawer
         isOpen={isCartOpen}
         onClose={() => setCartOpen(false)}
         items={cartItems}
         onRemoveItem={handleRemoveItem}
-      />
+      /> */}
     </>
   );
 }
